@@ -1,6 +1,6 @@
 [project]
 title = Match2
-version = 1.0
+version = 0.1
 write_log = 0
 compress_archive = 1
 bundle_resources = /res
@@ -145,7 +145,7 @@ bundle_identifier = com.example.todo
 [html5]
 custom_heap_size = 0
 include_dev_tool = 0
-htmlfile = /builtins/manifests/web/engine_template.html
+htmlfile = /index.html
 archive_location_prefix = archive
 
 [particle_fx]
