@@ -162,7 +162,6 @@
       * This function will be called from apiok.lua via html5.run()
       */
       function initDefOkApi() {
-        alert("initDefOkApi()");
         var rParams = FAPI.Util.getRequestParameters();
         JsToDef.send("DefOkApi::FAPI.Util.getRequestParameters", rParams);
         FAPI.init(rParams["api_server"], rParams["apiconnection"],
