@@ -157,18 +157,11 @@
 
     <!-- OKSDK example -->
     <script type="text/javascript" src="//api.ok.ru/js/fapi5.js" defer="defer"></script>
-    <script type='text/javascript' defer="defer">
-        setTimeout(function(){
-            //JsToDef.send("FAPI.Util.getRequestParameters", FAPI.Util.getRequestParameters());
-            // JsToDef.send("FloatEvent", 19.2);
-            // JsToDef.send("IntEvent", 18);
-            // JsToDef.send("StrintEvent", "str");
-            // JsToDef.send("EmptyEvent");
-            // JsToDef.send("BooleanEvent", true);
-            // JsToDef.send("BooleanEvent", false);
-
-            // FAPI.Util.getRequestParameters();
-        }, 3000)
+    <script type='text/javascript'>
+        function API_callback(method, result, data) {
+            var key = "DefOkApi.API_callback." + method + "_" + result;
+            JsToDef.send(key, data);
+        }
     </script>
 </body>
 </html>
