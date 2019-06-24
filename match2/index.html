@@ -158,10 +158,31 @@
     <!-- OKSDK example -->
     <script type="text/javascript" src="//api.ok.ru/js/fapi5.js" defer="defer"></script>
     <script type='text/javascript'>
-        function API_callback(method, result, data) {
-            var key = "DefOkApi.API_callback." + method + "_" + result;
-            JsToDef.send(key, data);
-        }
+      /*
+      * This function will be called from apiok.lua via html5.run()
+      */
+      function initDefOkApi() {
+        alert("initDefOkApi()");
+        var rParams = FAPI.Util.getRequestParameters();
+        JsToDef.send("DefOkApi::FAPI.Util.getRequestParameters", rParams);
+        FAPI.init(rParams["api_server"], rParams["apiconnection"],
+                  function() {
+                      JsToDef.send("DefOkApi::init_success", rParams);
+                  },
+                  function(error) {
+                      JsToDef.send("DefOkApi::init_error", error);
+                  }
+        );
+      }
+
+      /*
+      * This function will be called as a callback for these methods:
+      * showPermissions, showInvite, showNotification, showPayment, showConfirmation, setWindowSize
+      */
+      function API_callback(method, result, data) {
+          alert("Method "+method+" finished with result "+result+", "+data);
+          JsToDef.send("DefOkApi::API_callback", {method:method, result:result, data:data});
+      }
     </script>
 </body>
 </html>
