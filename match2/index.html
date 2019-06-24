@@ -182,6 +182,30 @@
           alert("Method "+method+" finished with result "+result+", "+data);
           JsToDef.send("DefOkApi::API_callback", {method:method, result:result, data:data});
       }
+
+      function postMediatopic() {
+        FAPI.UI.postMediatopic({
+        "media":[
+          {
+              "type": "text",
+              "text": "Here you can see odnoklassniki API docs(click the link)"
+          },
+          {
+              "type": "link",
+              "url": "https://apiok.ru"
+          },
+          {
+              "type": "poll",
+              "question": "Do you like our API?",
+              "answers": [
+                  { "text": "Yes" },
+                  { "text": "No" }
+              ],
+              "options": "SingleChoice,AnonymousVoting"
+          }
+        ]
+        }, false);
+      }
     </script>
 </body>
 </html>
