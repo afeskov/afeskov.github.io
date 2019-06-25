@@ -123,12 +123,15 @@ launch_image_2224x1668 = /assets/launch_images/ios_launch_2224x1668.png
 
 [android]
 version_code = 1
+minimum_sdk_version = 9
+target_sdk_version = 26
 package = com.example.todo
 manifest = /builtins/manifests/android/AndroidManifest.xml
 iap_provider = GooglePlay
 input_method = HiddenInputField
 immersive_mode = 0
 debuggable = 0
+proguard = /builtins/manifests/android/dmengine.pro
 app_icon_36x36 = /assets/app_icons/icon_36.png
 app_icon_48x48 = /assets/app_icons/icon_48.png
 app_icon_72x72 = /assets/app_icons/icon_72.png
